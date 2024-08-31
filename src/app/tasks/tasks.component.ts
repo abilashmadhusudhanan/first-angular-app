@@ -50,4 +50,8 @@ export class TasksComponent {
   onAddTask() {
     this.isNewTask = !this.isNewTask;
   }
+
+  onCloseTaskForm() {
+    this.isNewTask = false;
+  }
 }
