@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { NewTaskFormComponent } from "./new-task-form/new-task-form.component";
+import { type NewTask } from './new-task-form/new-task-form.model';
 
 @Component({
   selector: 'app-tasks',
@@ -52,6 +53,17 @@ export class TasksComponent {
   }
 
   onCloseTaskForm() {
+    this.isNewTask = false;
+  }
+
+  onNewTask(newTask: NewTask) {
+    this.dummyTasks.push({
+      id: Date.now().toString(),
+      userId: this.userId,
+      title: newTask.title,
+      summary: newTask.summary,
+      dueDate: newTask.dueDate
+    });
     this.isNewTask = false;
   }
 }

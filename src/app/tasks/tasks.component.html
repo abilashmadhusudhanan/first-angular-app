@@ -6,7 +6,7 @@
         </menu>
     </header>
     @if (isNewTask) {
-        <app-new-task-form (closeTaskForm)="onCloseTaskForm()"  />
+        <app-new-task-form (closeTaskForm)="onCloseTaskForm()" (newTask)="onNewTask($event)" />
     }
     <ul>
         @for(task of selectedUserTasks; track task.id) {
